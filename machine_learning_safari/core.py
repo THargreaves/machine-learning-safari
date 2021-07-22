@@ -76,3 +76,48 @@ class NullModel(SupervisedModel):
 
     def inspect(self):
         raise NotImplementedError
+
+
+class KMeans(UnsupervisedModel):
+
+    def __init__(self, k=2, max_iter=100, tol=1e-4, seed=None):
+        # Todo: multiple reps
+        # Validation
+        if not isinstance(k, int) and k > 0:
+            raise ValueError("`k` must be a positive integer")
+        if not isinstance(max_iter, int) and max_iter > 0:
+            raise ValueError("`max_iter` must be a positive integer")
+        if not isinstance(tol, (int, float)) and tol > 0:
+            raise ValueError("`tol` must be a positive real number")
+        self.k = k
+        self.max_iter = max_iter
+        self.tol = tol
+        self.seed = seed
+        self.means = None
+
+    def _fit(self, X):
+        np.random.seed(self.seed )
+        means = X[np.random.choice(X.shape[0], self.k)]
+        for __ in range(self.max_iter):
+            # Compute closest means
+            distances = np.sqrt(((X - means[:, np.newaxis]) ** 2).sum(axis=2))
+            closest = np.argmin(distances, axis=0)
+            # Update means
+            new_means = np.array([X[closest==k].mean(axis=0)
+                                 for k in range(means.shape[0])])
+            if np.all(new_means - means < self.tol):
+                break
+            means = new_means
+        else:
+            # Todo: add convergence error
+            raise Error("Failed to converge")
+        self.means = means
+
+    def _transform(self, X):
+        # Todo: repetitive code; should modularise
+        distances = np.sqrt(((X - self.means[:, np.newaxis]) ** 2).sum(axis=2))
+        closest = np.argmin(distances, axis=0)
+        return closest
+
+    def inspect(self):
+        pass
