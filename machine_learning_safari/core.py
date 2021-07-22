@@ -28,6 +28,33 @@ class SupervisedModel(ABC):
     def inspect(self):
         pass
 
+class UnsupervisedModel(ABC):
+
+    def __init__(self):
+        self.fitted = False
+
+    def fit(self, X):
+        self._fit(X)
+        self.fitted = True
+
+    @abstractmethod
+    def _fit(self, X):
+        pass
+
+    def transform(self, X):
+        if not self.fitted:
+            # Todo: define custom error class
+            raise Error("Must fit model before transforming")
+        return self._transform(X)
+
+    @abstractmethod
+    def _transform(self, X):
+        pass
+
+    @abstractmethod
+    def inspect(self):
+        pass
+
 
 class NullModel(SupervisedModel):
 
