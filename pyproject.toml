@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "machine_learning_safari"
+name = "Machine Learning Safari"
 version = "0.1.0"
 authors = [
     "Tim Hargreaves <hello@timhargreaves.com>",

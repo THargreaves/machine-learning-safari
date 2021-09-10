@@ -6,13 +6,10 @@ category = "main"
 optional = false
 python-versions = ">=3.7,<3.11"
 
-[package.dependencies]
-numpy = ">=1.16.5,<1.23.0"
-
 [metadata]
 lock-version = "1.1"
 python-versions = "3.9"
-content-hash = "131a837fe12bf90fcb77f22b722b8590e0f917c2e1b6d6ae17d11ac70f259dbe"
+content-hash = "6303e190ed495366fade7841983edbf138eafda33bb699425f46d1c1582e2223"
 
 [metadata.files]
 numpy = [
