@@ -22,7 +22,27 @@ We hope that this package can be used for both the practical application of mach
 
 ## Package Design
 
-TODO
+The package is composed of nested (sub-)modules, each corresponding to a particular machine learning algorithm implemented as a class. An instance of such a class is called a model and (loosely inspired, by [scikit-learn](https://scikit-learn.org/stable/)) has `fit` and `apply` methods. On top of this, each class has an `inspect` method which can be used to display information about the models internal state. Note, that we use the method `apply` in both supervised and unsupervised settings, rather than including separate `predict`/`transform` methods.
+
+For supervised models, rather than having separate classifiers and regressors, we bundle up functionality into one class and provide an `objective` parameter which can be either `regression` or `classification`.
+
+For example, we can fit and apply the null model for classification as so.
+
+```python
+import numpy as np
+import machine_learning_safari as mls
+
+X_train = np.empty((4, 2))
+y_train = np.array([1, 2, 3, 3])
+X_test = np.empty((3, 2))
+
+mod = mls.NullModel(objective='classification')
+mod.fit(None, np.array())
+mod.apply(X_test)
+#> array([3, 3, 3])
+```
+
+The package is developed using the methods discussed in [Hypermodern Python](https://cjolowicz.github.io/posts/hypermodern-python-01-setup/). Most notably, this includes using [Poetry](https://python-poetry.org) for packaging and dependcy management.
 
 ## Contributing
 
