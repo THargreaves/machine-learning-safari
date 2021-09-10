@@ -1,5 +1,10 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.poetry]
 name = "Machine Learning Safari"
+packages = [{include = "machine_learning_safari", from = "src"}]
 version = "0.1.0"
 authors = [
     "Tim Hargreaves <hello@timhargreaves.com>",
@@ -17,7 +22,16 @@ python = "3.9"
 numpy = "^1.21.2"
 
 [tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+coverage = {version = "^5.5", extras = ["toml"]}
+pytest-cov = "^2.12.1"
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["machine_learning_safari"]
+
+[tool.coverage.report]
+show_missing = true
