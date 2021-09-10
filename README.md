@@ -6,7 +6,7 @@
 
 ## Overview
 
-![Machine Learning Safari Logo]()
+![Machine Learning Safari Logo](https://user-images.githubusercontent.com/38204689/132847544-bb36bd1c-7390-4351-b694-269e873cd16c.png)
 
 Machine Learning Safari is an esoteric Python comprised of from-scratch implementations of popular machine learning algorithms.
 
