@@ -1,8 +1,23 @@
-[build-system]
-requires = [
-    "setuptools>=42",
-    "wheel",
-    "numpy",
-    "scipy",
+[tool.poetry]
+name = "machine_learning_safari"
+version = "0.1.0"
+authors = [
+    "Tim Hargreaves <hello@timhargreaves.com>",
+    "Patricio Hernandez Senosiain <patricio.hernandez-senosiain@warwick.ac.uk>"
 ]
-build-backend = "setuptools.build_meta"
+description = "A broad collection of machine learning algorithms implemented in Python"
+license = "MIT"
+readme = "README.md"
+homepage = "https://thargreaves.github.io/machine-learning-safari/"
+repository = "https://github.com/THargreaves/machine-learning-safari/"
+keywords = ["machine-learning", "algorithms", "statistics"]
+
+[tool.poetry.dependencies]
+python = "3.9"
+numpy = "^1.21.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
