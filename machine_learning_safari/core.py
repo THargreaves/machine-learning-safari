@@ -3,8 +3,8 @@
 from abc import ABC, abstractmethod
 
 import numpy as np
-import scipy.stats as sts
 
+from machine_learning_safari.exceptions import NotFittedError
 
 class SupervisedModel(ABC):
 
@@ -42,10 +42,15 @@ class NullModel(SupervisedModel):
         super(NullModel, self).__init__()
 
     def fit(self, X, y):
-        self.val = sts.mode(y) if self.obj == 'classification' else np.mean(y)
+        self.val = self._mode(y) if self.obj == 'classification' else np.mean(y)
 
     def predict(self, X):
         return np.full(X.shape[0], self.val)
+    
+    @staticmethod
+    def _mode(x):
+        values, counts = np.unique(x, return_counts=True)
+        return values[np.argmax(counts)]
 
     def inspect(self):
         raise NotImplementedError
