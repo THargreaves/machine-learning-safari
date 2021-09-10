@@ -18,7 +18,7 @@ class SupervisedModel(ABC):
     def predict(self, X):
         if not self.fitted:
             # Todo: define custom error class
-            raise Error("Must fit model before predicting")
+            raise NotFittedError("Must fit model before predicting")
 
     @abstractmethod
     def _predict(self, X):
