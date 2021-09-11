@@ -1,7 +1,9 @@
 # Machine Learning Safari
 
-[![Language](https://img.shields.io/badge/Language-Python_(3.8%2B)-orange.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Language](https://img.shields.io/badge/language-Python_(3.8%2B)-orange.svg?style=flat-square)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Code Style](https://img.shields.io/badge/code%20style-PEP%208-informational?style=flat-square)](https://www.python.org/dev/peps/pep-0008/)
+
 [![Documentation](https://img.shields.io/badge/docs-stable-blue.svg)](http://thargreaves.github.io/machine-learning-safari/)
 
 ## Overview
