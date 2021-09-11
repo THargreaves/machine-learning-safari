@@ -6,8 +6,8 @@ import numpy as np
 
 from machine_learning_safari.exceptions import NotFittedError
 
-class SupervisedModel(ABC):
 
+class SupervisedModel(ABC):
     def __init__(self):
         self.fitted = False
 
@@ -39,10 +39,9 @@ class SupervisedModel(ABC):
 
 
 class NullModel(SupervisedModel):
-
     def __init__(self, objective):
         # Validation
-        if not objective in ('classification', 'regression'):
+        if objective not in ('classification', 'regression'):
             raise ValueError(
                 "`objective` must be one of 'classification' or 'regression'"
             )
@@ -51,11 +50,11 @@ class NullModel(SupervisedModel):
         super(NullModel, self).__init__()
 
     def _fit(self, X, y):
-        self.val = self._mode(y) if self.obj == 'classification' else np.mean(y)
+        self.val = np.mean(y) if self.obj == 'regression' else self._mode(y)
 
     def _predict(self, X):
         return np.full(X.shape[0], self.val)
-    
+
     @staticmethod
     def _mode(x):
         values, counts = np.unique(x, return_counts=True)

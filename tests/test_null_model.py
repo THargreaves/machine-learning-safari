@@ -3,10 +3,10 @@ import pytest
 
 from machine_learning_safari import NullModel
 
-@pytest.mark.parametrize('objective,expectation', [
-    ('regression', 3),
-    ('classification', 2)
-])
+
+@pytest.mark.parametrize(
+    'objective,expectation', [('regression', 3), ('classification', 2)]
+)
 def test_null_model(objective, expectation):
     # Data
     X_train = np.empty((5, 2))
