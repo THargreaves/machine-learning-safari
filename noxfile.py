@@ -45,3 +45,11 @@ def docs(session) -> None:
     """Build the documentation."""
     session.run('poetry', 'install', external=True)
     session.run("sphinx-build", "docs", "docs/_build")
+
+
+@nox.session(python=versions[-1])
+def coverage(session) -> None:
+    """Upload coverage data."""
+    session.run('poetry', 'install', external=True)
+    session.run("coverage", "xml", "--fail-under=0")
+    session.run("codecov", *session.posargs)

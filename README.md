@@ -4,7 +4,9 @@
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Code Style](https://img.shields.io/badge/code%20style-PEP%208-informational?style=flat-square)](https://www.python.org/dev/peps/pep-0008/)
 
+[![Tests](https://github.com/THargreaves/machine-learning-safari/workflows/Tests/badge.svg)](https://github.com/THargreaves/machine-learning-safari/actions?workflow=Tests)
 [![Documentation](https://img.shields.io/badge/docs-stable-blue.svg)](http://thargreaves.github.io/machine-learning-safari/)
+[![Codecov](https://codecov.io/gh/THargreaves/machine-learning-safari/branch/master/graph/badge.svg)](https://codecov.io/gh/THargreaves/machine-learning-safari)
 
 ## Overview
 
