@@ -2,6 +2,6 @@
 
 
 class NotFittedError(Exception):
-    """Exception raised predicting using an unfitted estimator."""
+    """Exception raised when predicting using an unfitted estimator."""
 
     pass

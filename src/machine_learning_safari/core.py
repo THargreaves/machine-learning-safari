@@ -7,27 +7,54 @@ import numpy as np
 from machine_learning_safari.exceptions import NotFittedError
 
 
-class SupervisedModel(ABC):
+class _SupervisedModel(ABC):
+    """A abstract model used for supervised learning."""
+
     def __init__(self):
+        """Initialise the model and mark as unfitted."""
         self.fitted = False
 
-    def fit(self, X, y):
+    def fit(self, X: np.ndarray, y: np.ndarray):
+        """
+        Fit the model.
+
+        Args:
+            X: Array of training set predictors
+            y: Array of training set responses
+
+        Returns:
+            self: The fitted model
+        """
+        # Fit using child method and mark as fitted
         self._fit(X, y)
         self.fitted = True
         return self
 
     @abstractmethod
     def _fit(self, X, y):
+        """Fit the model using internal method to be overridden by child."""
         pass
 
-    def predict(self, X):
+    def apply(self, X: np.ndarray) -> np.ndarray:
+        """
+        Apply the model.
+
+        Args:
+            X: Array of test set predictors
+
+        Returns:
+            y: The result of applying the model.
+
+        Raises:
+            NotFittedError: If the model has not been fitted yet.
+        """
         if not self.fitted:
-            # Todo: define custom error class
             raise NotFittedError("Must fit model before predicting")
-        return self._predict(X)
+        return self._apply(X)
 
     @abstractmethod
-    def _predict(self, X):
+    def _apply(self, X):
+        """Apply the model using internal method to be overridden by child."""
         pass
 
     def inspect(self):
@@ -38,8 +65,28 @@ class SupervisedModel(ABC):
         pass
 
 
-class NullModel(SupervisedModel):
+class NullModel(_SupervisedModel):
+    """
+    A null model.
+
+    The null model is the optimum model that can be trained by only considering
+    the response variable in the training set (ignoring the predictors). This
+    should be used as a benchmark performance, with any model that is better
+    than chance, obtaining a better test score.
+
+    For classification, the null model will predict the most common class in
+    the training data for every prediction (regardless of the predictor
+    values). For regression, the mean is used.
+    """
+
     def __init__(self, objective):
+        """
+        Initialise the model.
+
+        Args:
+            objective: The model objecive, either 'classification' or
+                'regression'.
+        """
         # Validation
         if objective not in ('classification', 'regression'):
             raise ValueError(
@@ -52,7 +99,7 @@ class NullModel(SupervisedModel):
     def _fit(self, X, y):
         self.val = np.mean(y) if self.obj == 'regression' else self._mode(y)
 
-    def _predict(self, X):
+    def _apply(self, X):
         return np.full(X.shape[0], self.val)
 
     @staticmethod
