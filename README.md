@@ -2,7 +2,7 @@
 
 [![Language](https://img.shields.io/badge/language-Python_(3.8%2B)-orange.svg?style=for-the-badge)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Code Style](https://img.shields.io/badge/code%20style-PEP%208-informational?style=flat-square)](https://www.python.org/dev/peps/pep-0008/)
+[![Code Style](https://img.shields.io/badge/code%20style-PEP%208-informational?style=for-the-badge)](https://www.python.org/dev/peps/pep-0008/)
 
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/THargreaves/machine-learning-safari/Tests?logo=github&style=for-the-badge)](https://github.com/THargreaves/machine-learning-safari/actions?workflow=Tests)
 [![Documentation](https://img.shields.io/badge/docs-stable-blue.svg?style=for-the-badge)](http://thargreaves.github.io/machine-learning-safari/)
