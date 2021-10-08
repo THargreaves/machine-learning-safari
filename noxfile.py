@@ -68,7 +68,7 @@ def xdoctest(session) -> None:
     """Run examples with xdoctest."""
     args = session.posargs or ['all']
     session.run('poetry', 'install', '--no-dev', external=True)
-    install_with_constraints(session, 'xdoctest')
+    install_with_constraints(session, 'xdoctest', 'pygments')
     session.run('python', '-m', 'xdoctest', 'mlsafari', *args)
 
 
