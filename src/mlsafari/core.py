@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 
 import numpy as np
 
-from machine_learning_safari.exceptions import NotFittedError
+from mlsafari.exceptions import NotFittedError
 
 
 class _SupervisedModel(ABC):

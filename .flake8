@@ -1,5 +1,5 @@
 [flake8]
 select = C,E,F,W,I,D,DAR
 max-complexity = 10
-application-import-names = machine_learning_safari
+application-import-names = mlsafari
 import-order-style = pep8

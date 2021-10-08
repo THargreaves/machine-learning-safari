@@ -6,8 +6,8 @@ Reference
     :backlinks: none
 
 
-machine_learning_safari.core
+mlsafari.core
 ----------------------------
 
-.. automodule:: machine_learning_safari.core
+.. automodule:: mlsafari.core
    :members:

@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "Machine Learning Safari"
-packages = [{include = "machine_learning_safari", from = "src"}]
+packages = [{include = "mlsafari", from = "src"}]
 version = "0.1.0"
 authors = [
     "Tim Hargreaves <hello@timhargreaves.com>",
@@ -41,7 +41,7 @@ source = ["src", "*/site-packages"]
 
 [tool.coverage.run]
 branch = true
-source = ["machine_learning_safari"]
+source = ["mlsafari"]
 
 [tool.coverage.report]
 show_missing = true

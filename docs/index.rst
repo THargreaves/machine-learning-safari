@@ -22,4 +22,4 @@ You can install the package using Pip:
 
 .. code-block:: console
 
-   $ pip install machine_learning_safari
+   $ pip install mlsafari

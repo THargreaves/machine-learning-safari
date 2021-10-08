@@ -2,7 +2,7 @@
 import numpy as np
 import pytest
 
-from machine_learning_safari import NullModel
+from mlsafari import NullModel
 
 
 @pytest.mark.parametrize(

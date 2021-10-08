@@ -34,7 +34,7 @@ For example, we can fit and apply the null model for classification as so.
 
 ```python
 import numpy as np
-import machine_learning_safari as mls
+import mlsafari as mls
 
 X_train = np.empty((4, 2))
 y_train = np.array([1, 2, 3, 3])

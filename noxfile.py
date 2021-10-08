@@ -69,7 +69,7 @@ def xdoctest(session) -> None:
     args = session.posargs or ['all']
     session.run('poetry', 'install', '--no-dev', external=True)
     install_with_constraints(session, 'xdoctest')
-    session.run('python', '-m', 'xdoctest', 'machine_learning_safari', *args)
+    session.run('python', '-m', 'xdoctest', 'mlsafari', *args)
 
 
 @nox.session(python=versions[-1])
