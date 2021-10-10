@@ -15,6 +15,7 @@ license = "MIT"
 readme = "README.md"
 homepage = "https://thargreaves.github.io/machine-learning-safari/"
 repository = "https://github.com/THargreaves/machine-learning-safari/"
+documentation = "https://machine-learning-safari.readthedocs.io"
 keywords = ["machine-learning", "algorithms", "statistics"]
 
 [tool.poetry.dependencies]
