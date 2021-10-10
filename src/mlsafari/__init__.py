@@ -2,3 +2,4 @@
 __version__ = "0.1.0"
 
 from .core import NullModel  # noqa
+from .k_means import KMeans  # noqa
