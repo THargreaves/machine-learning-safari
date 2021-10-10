@@ -33,7 +33,7 @@ class _SupervisedModel(ABC):
     @abstractmethod
     def _fit(self, X, y):
         """Fit the model using internal method to be overridden by child."""
-        pass  #pragma: no cover
+        pass  # pragma: no cover
 
     def apply(self, X: np.ndarray) -> np.ndarray:
         """
@@ -55,14 +55,14 @@ class _SupervisedModel(ABC):
     @abstractmethod
     def _apply(self, X):
         """Apply the model using internal method to be overridden by child."""
-        pass  #pragma: no cover
+        pass  # pragma: no cover
 
     def inspect(self):
         self._inspect()
 
     @abstractmethod
     def _inspect(self):
-        pass  #pragma: no cover
+        pass  # pragma: no cover
 
 
 class _UnsupervisedModel(ABC):
@@ -90,7 +90,7 @@ class _UnsupervisedModel(ABC):
     @abstractmethod
     def _fit(self, X):
         """Fit the model using internal method to be overridden by child."""
-        pass  #pragma: no cover
+        pass  # pragma: no cover
 
     def apply(self, X: np.ndarray) -> np.ndarray:
         """
@@ -112,14 +112,14 @@ class _UnsupervisedModel(ABC):
     @abstractmethod
     def _apply(self, X):
         """Apply the model using internal method to be overridden by child."""
-        pass  #pragma: no cover
+        pass  # pragma: no cover
 
     def inspect(self):
         self._inspect()
 
     @abstractmethod
     def _inspect(self):
-        pass  #pragma: no cover
+        pass  # pragma: no cover
 
 
 class NullModel(_SupervisedModel):
