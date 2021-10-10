@@ -33,7 +33,7 @@ class _SupervisedModel(ABC):
     @abstractmethod
     def _fit(self, X, y):
         """Fit the model using internal method to be overridden by child."""
-        pass
+        pass  # pragma: no cover
 
     def apply(self, X: np.ndarray) -> np.ndarray:
         """
@@ -55,14 +55,71 @@ class _SupervisedModel(ABC):
     @abstractmethod
     def _apply(self, X):
         """Apply the model using internal method to be overridden by child."""
-        pass
+        pass  # pragma: no cover
 
     def inspect(self):
         self._inspect()
 
     @abstractmethod
     def _inspect(self):
-        pass
+        pass  # pragma: no cover
+
+
+class _UnsupervisedModel(ABC):
+    """A abstract model used for unsupervised learning."""
+
+    def __init__(self):
+        """Initialise the model and mark as unfitted."""
+        self.fitted = False
+
+    def fit(self, X: np.ndarray):
+        """
+        Fit the model.
+
+        Args:
+            X: Array of training set features
+
+        Returns:
+            self: The fitted model
+        """
+        # Fit using child method and mark as fitted
+        self._fit(X)
+        self.fitted = True
+        return self
+
+    @abstractmethod
+    def _fit(self, X):
+        """Fit the model using internal method to be overridden by child."""
+        pass  # pragma: no cover
+
+    def apply(self, X: np.ndarray) -> np.ndarray:
+        """
+        Apply the model.
+
+        Args:
+            X: Array of test set features
+
+        Returns:
+            y: The result of applying the model.
+
+        Raises:
+            NotFittedError: If the model has not been fitted yet.
+        """
+        if not self.fitted:
+            raise NotFittedError("Must fit model before predicting")
+        return self._apply(X)
+
+    @abstractmethod
+    def _apply(self, X):
+        """Apply the model using internal method to be overridden by child."""
+        pass  # pragma: no cover
+
+    def inspect(self):
+        self._inspect()
+
+    @abstractmethod
+    def _inspect(self):
+        pass  # pragma: no cover
 
 
 class NullModel(_SupervisedModel):
